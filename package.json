@@ -6,6 +6,7 @@
   "main": "./lib",
   "license": "ISC",
   "scripts": {
+    "commit": "npx git-cz",
     "clean": "rimraf lib",
     "lint": "eslint *.js",
     "test": "echo \"No tests implemented\"",
@@ -75,6 +76,11 @@
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-transform-runtime",
       "@babel/plugin-syntax-dynamic-import"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   }
 }
