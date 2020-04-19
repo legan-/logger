@@ -11,11 +11,10 @@
     "lint": "eslint *.js",
     "test": "echo \"No tests implemented\"",
     "build": "babel index.js --out-dir lib",
-    "prepublish": "clean && lint && build"
+    "prepublish": "yarn clean && yarn lint && yarn build"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "repository": {
     "type": "git",
