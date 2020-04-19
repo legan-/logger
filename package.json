@@ -1,0 +1,80 @@
+{
+  "name": "@legan/logger",
+  "description": "Log everything",
+  "author": "legan",
+  "version": "1.0.0",
+  "main": "./lib",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "eslint *.js",
+    "test": "echo \"No tests implemented\"",
+    "build": "babel index.js --out-dir lib",
+    "prepublish": "clean && lint && build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/legan-/logger"
+  },
+  "homepage": "https://github.com/legan-/logger#readme",
+  "bugs": {
+    "url": "https://github.com/legan-/logger/issues"
+  },
+  "dependencies": {
+    "date-fns": "^2.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "babel-eslint": "^10.1.0",
+    "commitizen": "^4.0.4",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.6",
+    "prettier": "2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "files": [
+    "LICENSE",
+    "lib/index.js"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-runtime",
+      "@babel/plugin-syntax-dynamic-import"
+    ]
+  }
+}
